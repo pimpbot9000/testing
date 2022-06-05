@@ -6,12 +6,28 @@ Squash commits
 Rebase and squash (in current working branch)
 ```git rebase -i master```
 
-If branch if ahead of master (no commits in master)
+If branch if ahead of master (no commits in master since branching)
 ```git merge <branch>```
 fastforwards. All the commits of branch will be part of the master.
 
-If you don't want all the commits to be part of master
+Squash and merge
+```git merge --squash <branch>```
+
+If there are changes in master after branching
+```git merge <branch>```
+creates a single merge commit.
+
+If there are no commits in master after branching but you want a single merge commit:
 ```git merge --no-ff <branch>```
 
-stuff!
-other stuff!
+Rewrite history and remove any stuff locally
+```git reset --hard HEAD~1```
+```git push -f```
+
+Rewrite history but keep local changes (already added)
+```git reset --soft HEAD~1```
+```git push -f```
+
+Rewrite history but keep local changes (not added)
+```git reset --mixed HEAD~1```
+```git push -f```
