@@ -4,3 +4,4 @@ HOTFIX MAIN2
 HOTFIX hotfix branch
 HOTFIX MAIN
 HOTFIC hotfix branch 2
+HOTFIX hotfix2 branch
