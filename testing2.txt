@@ -1,4 +1,6 @@
 line XX
 line XXX
-HOTFIX MAIN
 HOTFIX MAIN2
+HOTFIX hotfix branch
+HOTFIX MAIN
+HOTFIC hotfix branch 2
