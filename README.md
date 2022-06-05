@@ -13,4 +13,5 @@ fastforwards. All the commits of branch will be part of the master.
 If you don't want all the commits to be part of master
 ```git merge --no-ff <branch>```
 
-
+stuff!
+other stuff!
