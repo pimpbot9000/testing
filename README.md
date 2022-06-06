@@ -34,3 +34,8 @@ Rewrite history but keep local changes (already added)
 Rewrite history but keep local changes (not added)
 ```git reset --mixed HEAD~1```
 ```git push -f```
+
+Rewrite commit message
+```git commit --amend```
+or ```git commit --amend -m "an updated commit message"```
+```git push -f```
