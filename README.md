@@ -39,3 +39,11 @@ Rewrite commit message
 ```git commit --amend```
 or ```git commit --amend -m "an updated commit message"```
 ```git push -f```
+
+Forgot to commit stuff? Amend latest commit.
+```git add hello.py```
+```git commit ```
+Realize you forgot to add the changes from main.py 
+```git add main.py ```
+```git commit --amend --no-edit```
+Flag ```no-edit``` means keep the old commit message.
