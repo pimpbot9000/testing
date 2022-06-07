@@ -29,7 +29,7 @@ def merge(arr, index1, index2):
 
 def merge_sort(arr, l, r):
   if l < r:
-    m = l+(r-l)//2
+    m = l + (r-l)//2
     merge_sort(arr, l, m)
     merge_sort(arr, m + 1, r)
     merge(arr, (l , m), (m + 1, r))
