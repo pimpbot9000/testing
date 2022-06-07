@@ -6,8 +6,10 @@ def merge(arr, index1, index2):
 
   tmp = [0] * (jj - i + 1)
   k = i
+  
   for z in range(0, len(tmp)):
     tmp[z] = arr[z + k]
+    
   i = 0; ii -= k; j -= k; jj -= k
   
   while i <= ii or j <= jj:
@@ -24,8 +26,6 @@ def merge(arr, index1, index2):
       arr[k] = tmp[j]
       j += 1
     k += 1
-
-  return res
 
 def merge_sort(arr, l, r):
   if l < r:
