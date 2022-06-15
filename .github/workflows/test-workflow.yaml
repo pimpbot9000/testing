@@ -1,0 +1,16 @@
+name: Test workflow with dispatch
+
+on:
+  workflow_dispatch:    
+  push:
+    branches:
+      - master
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1
+        run: echo hello world
