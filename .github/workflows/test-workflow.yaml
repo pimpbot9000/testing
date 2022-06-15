@@ -1,7 +1,6 @@
 name: Test workflow with dispatch
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
