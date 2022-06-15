@@ -33,5 +33,4 @@ def quicksort(arr, i, j):
         quicksort(arr, j, jj)
 
 quicksort(arr, 0, len(arr) - 1)
-#partition(arr, 0, len(arr) - 1)
 print(arr)
