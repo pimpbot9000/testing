@@ -1,6 +1,6 @@
 name: Test workflow with dispatch
 
-on:   
+on:
   push:
     branches:
       - master
