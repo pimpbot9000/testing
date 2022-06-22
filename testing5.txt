@@ -33,3 +33,4 @@ fix1 2
 fix2 1
 fix2 2
 fix3 1
+keskiviikko
