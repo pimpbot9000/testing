@@ -19,7 +19,7 @@ runs:
       shell: bash
     - run: |
         print_inputs () {
-          inputs="${{ toJSON(inputs) }}"
+          inputs='${{ toJSON(inputs) }}'
           keys=$(echo $inputs | jq -r ". | keys[]" )
           echo $keys
           for k in $keys; do
