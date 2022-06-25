@@ -23,7 +23,7 @@ runs:
           keys=$(echo $inputs | jq -r ". | keys[]" )
           echo $keys
           for k in $keys; do
-            value=$(echo $inputs | jq --arg key "$k" -r '.[$key]')
+            value=$(echo $inputs | jq --arg key $k -r '.[$key]')
             echo "$k :  $value"
           done
         }
