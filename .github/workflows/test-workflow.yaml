@@ -18,6 +18,8 @@ jobs:
           echo hello world
           echo "FOOFOO=foofoo" >> GITHUB_ENV
     
+      - name: Step 2
+        run: echo $FOOFOO
       - name: Test custom action in it's own repo
         id: my-action
         uses: pimpbot9000/hello-world-action@main
