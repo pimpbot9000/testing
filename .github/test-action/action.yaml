@@ -23,6 +23,7 @@ runs:
           keys=$(echo $inputs | jq -r ". | keys[]" )
           echo $keys
           for k in $keys; do
+            # export variable $k as key in jq ctx
             value=$(echo $inputs | jq --arg key $k -r '.[$key]')
             echo "$k :  $value"
           done
