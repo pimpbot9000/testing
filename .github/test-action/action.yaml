@@ -21,5 +21,10 @@ runs:
         inputs='${{ toJSON(inputs)}}'
         keys=$(echo $inputs | jq -r ". | keys[]" )
         echo $keys
+        for k in $keys; do
+          value=$(echo $inputs | jq --arg key "$k" -r '.[$key]')
+          echo "$k :  $value"
+        done
+
       shell: bash
   
