@@ -1,0 +1,23 @@
+name: Test workflow with dispatch
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      - name: Use action is this repo
+        uses: ./github/test-action
+        with:
+          who-to-greet: Tuomas
+          test-input-1: Jeejee
+          test-input-2: Joojoo
+
+      
