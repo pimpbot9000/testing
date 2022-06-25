@@ -6,7 +6,8 @@ on:
     branches:
       - main
 
-
+env:
+  MY_ENV: Tumppu
 jobs:
   job1:
     name: Job 1
@@ -24,4 +25,4 @@ jobs:
         id: my-action
         uses: pimpbot9000/hello-world-action@main
         with:
-          who-to-greet: "Tumppu"
+          who-to-greet: ${{ env.MY_ENV }}
