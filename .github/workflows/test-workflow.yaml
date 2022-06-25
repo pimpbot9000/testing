@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
 
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Step 1
         run: |
           echo hello world
-          echo "FOOFOO=foofoo" >> GITHUB_ENV
+          echo "FOOFOO=foofoo" >> $GITHUB_ENV
     
       - name: Step 2
         run: echo $FOOFOO
