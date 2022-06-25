@@ -18,13 +18,15 @@ runs:
       run: echo "${{inputs.who-to-greet}} ${{inputs.test-input-1}} ${{inputs.test-input-2}}"
       shell: bash
     - run: |
-        inputs='${{ toJSON(inputs)}}'
-        keys=$(echo $inputs | jq -r ". | keys[]" )
-        echo $keys
-        for k in $keys; do
-          value=$(echo $inputs | jq --arg key "$k" -r '.[$key]')
-          echo "$k :  $value"
-        done
-
+        print_inputs () {
+          inputs='${{ toJSON(inputs)}}'
+          keys=$(echo $inputs | jq -r ". | keys[]" )
+          echo $keys
+          for k in $keys; do
+            value=$(echo $inputs | jq --arg key "$k" -r '.[$key]')
+            echo "$k :  $value"
+          done
+        }
+        print_inputs
       shell: bash
   
