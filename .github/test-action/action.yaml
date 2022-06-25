@@ -26,7 +26,7 @@ runs:
             # export variable $k as key in jq ctx
             value=$(echo $inputs | jq --arg key $k -r '.[$key]')
             echo "$k :  $value"
-            echo ${key^^%INPUT}
+            echo ${k%input}
           done
         }
         print_inputs
