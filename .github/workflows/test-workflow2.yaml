@@ -1,4 +1,4 @@
-name: Test workflow with dispatch
+name: Test workflow with dispatch 2
 
 on:
   workflow_dispatch:
@@ -19,9 +19,6 @@ jobs:
           who-to-greet: Tuomas
           test-input-1: Jeejee
           test-input-2: Joojoo
-      - run: |
-          inputs=${{ toJSON(inputs)}}
-          keys=$(echo $inputs | jq -r ". | keys[]" )
-          echo $keys
+      
 
       

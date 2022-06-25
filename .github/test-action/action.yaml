@@ -17,4 +17,9 @@ runs:
     - name: Do something
       run: echo "${{inputs.who-to-greet}} ${{inputs.test-input-1}} ${{inputs.test-input-2}}"
       shell: bash
+    - run: |
+        inputs=${{ toJSON(inputs)}}
+        keys=$(echo $inputs | jq -r ". | keys[]" )
+        echo $keys
+      shell: bash
   
