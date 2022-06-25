@@ -6,6 +6,7 @@ on:
     branches:
       - master
 
+
 jobs:
   job1:
     name: Job 1
@@ -13,4 +14,12 @@ jobs:
 
     steps:
       - name: Step 1
-        run: echo hello world
+        run: |
+          echo hello world
+          echo "FOOFOO=foofoo" >> GITHUB_ENV
+    
+      - name: Test custom action in it's own repo
+        id: my-action
+        uses: pimpbot9000/hello-world-action@main
+        with:
+          who-to-greet: "Tumppu"
