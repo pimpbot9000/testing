@@ -25,8 +25,9 @@ runs:
           for k in $keys; do
             # export variable $k as key in jq ctx
             value=$(echo $inputs | jq --arg key $k -r '.[$key]')
-            echo "$k :  $value"
-            echo ${k%input}
+            #echo "$k :  $value"
+            without_prefix=${k#input-}
+            echo ${without_prefix^^}
           done
         }
         print_inputs
