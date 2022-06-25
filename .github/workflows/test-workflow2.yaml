@@ -16,9 +16,9 @@ jobs:
       - name: Use action is this repo
         uses: ./.github/test-action
         with:
-          who-to-greet: Tuomas
-          test-input-1: Jeejee
-          test-input-2: Joojoo
+          input-who-to-greet: Tuomas
+          input-test-input-1: Jeejee
+          input-test-input-2: Joojoo
       
 
       

@@ -1,13 +1,13 @@
 name: "Hello World"
 description: "Greet someone"
 inputs:
-  who-to-greet: # id of input
+  input-who-to-greet: # id of input
     description: "Who to greet"
     required: true    
-  test-input-1:
+  input-test-input-1:
     description: "test input 1"
     required: true
-  test-input-2:
+  input-test-input-2:
     description: "test input 2"
     required: true
 
@@ -26,6 +26,7 @@ runs:
             # export variable $k as key in jq ctx
             value=$(echo $inputs | jq --arg key $k -r '.[$key]')
             echo "$k :  $value"
+            echo ${key^^%INPUT}
           done
         }
         print_inputs
