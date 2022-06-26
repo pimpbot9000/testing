@@ -15,21 +15,31 @@ runs:
   using: "composite"
   steps:
     - name: Do something
-      run: echo "${{inputs.who-to-greet}} ${{inputs.test-input-1}} ${{inputs.test-input-2}}"
+      run: echo "${{inputs.input-who-to-greet}} ${{inputs.input-test-input-1}} ${{inputs.input-test-input-2}}"
       shell: bash
-    - run: |
+      
+    - name: Stuff
+      run: |
         print_inputs () {
-          inputs='${{ toJSON(inputs) }}'
-          keys=$(echo $inputs | jq -r ". | keys[]" )
-          echo $keys
+          local str="command "
+          local inputs='${{ toJSON(inputs) }}'
+          local keys=$(echo $inputs | jq -r ". | keys[]" )  
           for k in $keys; do
             # export variable $k as key in jq ctx
-            value=$(echo $inputs | jq --arg key $k -r '.[$key]')
-            #echo "$k :  $value"
-            without_prefix=${k#input-}
-            echo ${without_prefix^^}
+            local value=$(echo $inputs | jq --arg key $k -r '.[$key]')
+            local key_without_prefix=${k#input-} 
+            local key_in_caps=$(echo ${key_without_prefix^^} | tr '-' '_')       
+             
+            echo $key_in_caps=$value >> $GITHUB_ENV
+            local str="$str --${key_in_caps}=$value"
           done
+          echo $str
         }
-        print_inputs
+        res=$(print_inputs)
+        echo $res
+        
       shell: bash
+    - run: echo ${WHO_TO_GREET}
+      shell: bash
+
   
