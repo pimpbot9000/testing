@@ -20,5 +20,12 @@ jobs:
           input-test-input-1: Jeejee
           input-test-input-2: Joojoo
       
-
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+      
+      - name: Test docker meta outputs
+        run: |
+          echo ${{ steps.meta.output.tags }}
+          echo ${{ steps.meta.output.labels}}
       
