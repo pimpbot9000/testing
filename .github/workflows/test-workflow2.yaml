@@ -34,6 +34,7 @@ jobs:
             type=semver,pattern=w{{major}}.{{minor}}
             type=semver,pattern=w{{major}}.{{minor}}.{{patch}}
             type=semver,pattern=w{{major}}
+            type=raw,value=uusintauutta,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
           flavor: |
             latest=false
 
