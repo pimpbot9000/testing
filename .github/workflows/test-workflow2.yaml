@@ -50,3 +50,5 @@ jobs:
       - name: Test docker meta output version
         run: echo '${{ steps.meta.outputs.version }}'
       
+      - name: Github event name
+        run: echo "event name ${{ github.event_name }}"
