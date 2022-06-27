@@ -37,6 +37,7 @@ jobs:
             type=raw,value=uusintauutta,enable=${{ github.ref == 'refs/heads/main' }}
             type=raw,enable=true,priority=200,prefix=,suffix=,value=yeeha
             type=raw,value=default-branch,enable={{is_default_branch}}
+            type=raw,value=tagitus,enable=${{ startsWith(github.ref, 'refs/tags/') }}
           flavor: |
             latest=false
 
