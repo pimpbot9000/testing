@@ -22,6 +22,8 @@ jobs:
       
       - name: Docker meta
         id: meta
+        with:
+          images: name/app
         uses: docker/metadata-action@v4
       
       - name: Test docker meta outputs
