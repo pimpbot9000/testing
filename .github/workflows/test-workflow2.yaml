@@ -27,10 +27,12 @@ jobs:
         with:
           images: name/app
           tags: |
-            type=semver,pattern=v{{version}}
-            type=semver,pattern=v{{major}}.{{minor}}
-            type=semver,pattern=v{{major}}.{{minor}}.{{patch}}
-            type=semver,pattern=v{{major}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern=w{{version}}
+            type=semver,pattern=w{{major}}.{{minor}}
+            type=semver,pattern=w{{major}}.{{minor}}.{{patch}}
+            type=semver,pattern=w{{major}}
 
         uses: docker/metadata-action@v4
       
@@ -38,4 +40,6 @@ jobs:
         run: echo '${{ steps.meta.outputs.tags }}'
       - name: Test docker meta output labels
         run: echo '${{ steps.meta.outputs.labels }}'
+      - name: Test docker meta output version
+        run: echo '${{ steps.meta.outputs.version }}'
       
