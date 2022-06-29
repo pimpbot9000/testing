@@ -1,5 +1,7 @@
 name: Test workflow with dispatch 2
 
+env:
+  MY_STUFF: "my stuff"
 on:
   workflow_dispatch:
   push:
@@ -52,3 +54,14 @@ jobs:
       
       - name: Github event name
         run: echo "event name ${{ github.event_name }}"
+      
+      - name: Echo MY_STUFF
+        run: echo $MY_STUFF
+
+      - name: Set empty env
+        run: echo "MY_STUFF=${{ github.head_ref }}" >> $GITHUB_ENV
+      
+      - name: Echo MY_STUFF again
+        run: echo $MY_STUFF
+
+  # if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
