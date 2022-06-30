@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        ssh-key: ${{ secrets.SSH_KEY }}
+        ssh-key: "kakka"
         repository: pimpbot9000/hello-world-action
         persist-credentials: true
     - run: |
@@ -19,7 +19,7 @@ jobs:
 
     - run: ls
     - run: |
-        echo "hello world" > file.txt
+        echo "hello world" >> file.txt
         git add .
         git commit -m "added file.txt"
         git push
