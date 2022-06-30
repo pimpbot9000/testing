@@ -2,6 +2,7 @@ name: Test workflow with dispatch 2
 
 env:
   MY_STUFF: "my stuff"
+  NEW_STUFF: "new stuff!"
 on:
   workflow_dispatch:
   push:
@@ -23,7 +24,16 @@ jobs:
           input-who-to-greet: Tuomas
           input-test-input-1: Jeejee
           input-test-input-2: Joojoo
+
+      - name: Echo MY_STUFF
+        run: echo "My_STUFF -> $MY_STUFF"
+
+      - name: Set empty env
+        run: echo "MY_STUFF=$NEW_STUFF" >> $GITHUB_ENV
       
+      - name: Echo MY_STUFF again
+        run: echo "MY_STUFF -> $MY_STUFF"
+
       - name: Docker meta
         id: meta
         with:
@@ -54,15 +64,13 @@ jobs:
       
       - name: Github event name
         run: echo "event name ${{ github.event_name }}"
-      
+  
+  job4:
+    name: Job 2
+    runs-on: ubuntu-latest
+    steps:
       - name: Echo MY_STUFF
-        run: echo $MY_STUFF
-
-      - name: Set empty env
-        run: echo "MY_STUFF=${{ github.head_ref }}" >> $GITHUB_ENV
-      
-      - name: Echo MY_STUFF again
-        run: echo $MY_STUFF
+        run: echo "My_STUFF -> $MY_STUFF"
 
 
   # if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
