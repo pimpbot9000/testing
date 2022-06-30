@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        ssh-key: "kakka"
+        ssh-key: ${{ secrets.SSH_KEY }}
         repository: pimpbot9000/hello-world-action
         persist-credentials: true
     - run: |
