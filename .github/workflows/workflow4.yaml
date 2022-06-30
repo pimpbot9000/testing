@@ -12,6 +12,13 @@ jobs:
       with:
         ssh-key: ${{ secrets.SSH_KEY }}
         repository: pimpbot9000/hello-world-action
+        persist-credentials: true
+    - run: ls
+    - run: |
+        echo "hello world" > file.txt
+        git add .
+        git commit -m "added file.txt"
+        git push
 
 
  
