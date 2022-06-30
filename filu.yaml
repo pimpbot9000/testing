@@ -1,0 +1,8 @@
+spec:
+  containers:
+    - name: app1
+      image: imageurl.com
+      command: []
+      env:
+        - name: MONGO_HOST
+          value: 172.16.87.98
