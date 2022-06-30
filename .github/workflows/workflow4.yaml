@@ -8,10 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O yq && chmod +x yq
     
-    - run: ./yq
     - uses: actions/checkout@v3
       with:
         ssh-key: ${{ secrets.SSH_KEY }}
@@ -20,11 +17,13 @@ jobs:
     - run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
-
+    - run: |
+        wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O yq && chmod +x yq
+    - run: ./yq
     - run: ls
     - run: |
         echo "hello world" >> file.txt
-        git add .
+        git add file.txt
         git commit -m "added file.txt"
         git push
 
