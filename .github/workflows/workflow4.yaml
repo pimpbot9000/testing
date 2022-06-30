@@ -13,6 +13,10 @@ jobs:
         ssh-key: ${{ secrets.SSH_KEY }}
         repository: pimpbot9000/hello-world-action
         persist-credentials: true
+    - run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
     - run: ls
     - run: |
         echo "hello world" > file.txt
