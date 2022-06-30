@@ -10,6 +10,7 @@ jobs:
     steps:
     - run: |
         wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64 -O yq && chmod +x yq
+    - run: yq
     - uses: actions/checkout@v3
       with:
         ssh-key: ${{ secrets.SSH_KEY }}
