@@ -1,0 +1,17 @@
+name: test ssh another repo
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ssh: ${{ secrets.SSH_KEY }}
+        repository: pimpbot9000/hello-world-action
+
+
+ 
