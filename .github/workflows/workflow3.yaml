@@ -1,0 +1,22 @@
+name: Test deploy keys
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+env:
+  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${{ secrets.SSH_KEY }}" > ./ssh_key
+          chmod 0600 ./ssh_key
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add ./ssh_key
+      - name: clone
+          git clone git@github.com:pimpbot9000/hello-world-action.git
+
+
