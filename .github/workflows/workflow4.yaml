@@ -1,6 +1,14 @@
 name: test ssh another repo
 on:
   workflow_dispatch:
+    inputs:
+        name:
+          type: choice
+          required: true
+          description: Who to greet
+          options: 
+          - monalisa
+          - cschleiden
   push:
     branches:
       - main
